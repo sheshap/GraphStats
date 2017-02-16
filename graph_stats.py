@@ -35,6 +35,7 @@ plt.savefig("1.png")
 
 #degree distribution
 degrees = nx.degree(g)
+print degrees
 degree_values=sorted(nx.degree(g).values(),reverse=False)
 degree_dist=[degrees.values().count(x) for x in degree_values]
 plt.figure()
@@ -43,6 +44,12 @@ plt.title("Degree Distribution")
 plt.xlabel('Degree')
 plt.ylabel('Number of Nodes')
 plt.savefig("2.png")
+
+#power law
+plt.figure()
+plt.loglog(degree_values, degree_dist, basex=2)
+plt.grid(True)
+plt.title('loglog base 2 on x')
 
 P = degrees.keys()
 Q = degrees.values()
